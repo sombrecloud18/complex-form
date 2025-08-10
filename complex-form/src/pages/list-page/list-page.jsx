@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styles from './list-page.module.css';
+import { fetchProjects } from '../../api/api.js';
 
 export const ListPage = () => {
   const [projects, setProjects] = useState([]);
@@ -9,9 +9,9 @@ export const ListPage = () => {
   const [expandedProject, setExpandedProject] = useState(null);
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const loadProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/projects');
+        const response = await fetchProjects();
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -20,7 +20,7 @@ export const ListPage = () => {
       }
     };
 
-    fetchProjects();
+    loadProjects();
   }, []);
 
   const toggleTasks = (projectId) => {

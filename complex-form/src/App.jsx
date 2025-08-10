@@ -1,26 +1,15 @@
-import { FormProvider, useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import { CreateLayout } from "./layouts/create-layout.jsx";
+import { FormProvider } from "react-hook-form";
+import { CreateLayout } from "./components/layouts/create-layout.jsx";
 import { CreateProjectForm } from "./components/create-form.jsx";
-import { validationObject } from "./validation.js";
 import { useNavigate } from 'react-router-dom';
+import { useProjectForm } from "./hooks/useProjectForm.jsx";
 import axios from "axios";
 import "./App.css";
 import "./index.css";
 
 export const App = () => {
   const navigate = useNavigate();
-  const methods = useForm({
-    resolver: yupResolver(validationObject),
-    defaultValues: {
-      projectTitle: "",
-      projectDescription: "",
-      projectAuthor: "",
-      projectBudget: null,
-      projectPriority: "Low",
-      projectStatus: "Planned",
-    }
-  });
+  const methods = useProjectForm();
 
   const onSave = async (data) => {
     const payload = Object.fromEntries(
