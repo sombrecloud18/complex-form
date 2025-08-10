@@ -1,0 +1,129 @@
+.formTitle {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.formContainer {
+    padding: 2rem;
+    margin: 20px auto;
+    max-width: 1000px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(253, 241, 250);
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup-with-textarea {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.textarea {
+    flex-grow: 1;
+    resize: vertical;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.label {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.submitButton {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    padding: 4px 8px;
+    width: fit-content;
+    border: 2px solid rgb(223, 102, 213);
+    background-color: rgb(244, 205, 235);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    background-color: rgb(223, 102, 213);
+}
+
+/* Existing styles... */
+
+/* Add these new styles */
+.errorInput {
+  border-color: #ff0000 !important;
+}
+
+.errorText {
+  color: #ff0000;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.tasksSection {
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.taskInputs {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+}
+
+.addButton,
+.removeButton {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.addButton {
+  background-color: #e3c4ff;
+  border: 2px solid #63177f;
+  color: #000;
+}
+
+.removeButton {
+  background-color: #ffebee;
+  border: 1px solid #f44336;
+  color: #c62828;
+}
+
+@media (width <= 600px) {
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}
