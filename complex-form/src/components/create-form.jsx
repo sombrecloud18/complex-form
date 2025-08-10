@@ -1,26 +1,8 @@
 import { Controller, useFieldArray } from "react-hook-form";
 import styles from './create-form.module.css';
+import { priorityOptions, statusOptions, taskStatusOptions } from "../constants";
 
 export const CreateProjectForm = ({ onCancel, control, onSubmit, isEdit = false }) => {
-  const priorityOptions = [
-    { value: "Low", label: "Low" },
-    { value: "Medium", label: "Medium" },
-    { value: "High", label: "High" }
-  ];
-
-  const statusOptions = [
-    { value: "Planned", label: "Planned" },
-    { value: "In progress", label: "In progress" },
-    { value: "Completed", label: "Completed" },
-    { value: "Skipped", label: "Skipped" }
-  ];
-
-  const taskStatusOptions = [
-    { value: "Todo", label: "Todo" },
-    { value: "In Progress", label: "In Progress" },
-    { value: "Done", label: "Done" }
-  ];
-
   const { fields, append, remove } = useFieldArray({
     control,
     name: "tasks"
