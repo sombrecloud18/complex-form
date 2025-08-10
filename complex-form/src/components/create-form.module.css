@@ -71,9 +71,27 @@
     background-color: rgb(223, 102, 213);
 }
 
-/* Existing styles... */
+.cancelButton {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    padding: 4px 8px;
+    width: fit-content;
+    border: 2px solid rgb(103, 8, 8);
+    background-color: rgb(240, 117, 117);
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-/* Add these new styles */
+.cancelButton:hover {
+  background-color: rgb(103, 8, 8);
+  color: #fff;
+} 
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
 .errorInput {
   border-color: #ff0000 !important;
 }

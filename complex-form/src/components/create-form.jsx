@@ -1,7 +1,7 @@
 import { Controller, useFieldArray } from "react-hook-form";
 import styles from './create-form.module.css';
 
-export const CreateProjectForm = ({ control, onSubmit, isEdit = false }) => {
+export const CreateProjectForm = ({ onCancel, control, onSubmit, isEdit = false }) => {
   const priorityOptions = [
     { value: "Low", label: "Low" },
     { value: "Medium", label: "Medium" },
@@ -28,8 +28,16 @@ export const CreateProjectForm = ({ control, onSubmit, isEdit = false }) => {
 
   return (
     <form onSubmit={onSubmit} className={styles.formContainer}>
-      <h2 className={styles.formTitle}>{isEdit ? "Edit" : "Add"} Project</h2>
-      
+      {isEdit && (
+        <Controller
+          name="id"
+          control={control}
+          render={({ field }) => (
+            <input type="hidden" {...field} />
+          )}
+        />
+      )}
+      <h2 className={styles.formTitle}>{isEdit ? "Edit Project" : "Add Project"}</h2>
       <div className={styles.formGrid}>
         <div className={styles.column}>
           <div className={styles.formGroup}>
@@ -207,9 +215,18 @@ export const CreateProjectForm = ({ control, onSubmit, isEdit = false }) => {
         </button>
       </div>
 
-      <button type="submit" className={styles.submitButton}>
-        {isEdit ? "Update" : "Add"} project
-      </button>
+      <div className={styles.buttons}>
+        <button 
+          type="button" 
+          onClick={onCancel}
+          className={styles.cancelButton}
+        >
+          Cancel
+        </button>
+        <button type="submit" className={styles.submitButton}>
+          {isEdit ? "Update" : "Add"} project
+        </button>
+      </div>
     </form>
   );
 };

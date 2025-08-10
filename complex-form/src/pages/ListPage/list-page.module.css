@@ -1,0 +1,228 @@
+.container {
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 1000px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(253, 241, 250);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.createButton {
+    width: fit-content; 
+    background-color: rgb(255, 0, 136);
+    border: 1px solid purple;
+    border-radius: 5px;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.createButton:hover {
+    background-color: rgb(135, 53, 190);
+}
+
+.table {
+    width: 100%;
+    border: 1px solid black;
+    margin: 0 auto;
+    table-layout: auto;
+}
+
+.table th {
+    background-color: #e396c9;
+    color: #000;
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: 500;
+    border-right: 1px solid black;
+}
+
+.table th:last-child {
+    border-right: none;
+}
+
+.table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #000000;
+    border-left: 1px solid #000;
+    text-align: center;
+    word-break: break-word;
+}
+
+.table td:first-of-type {
+    border-left: none;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.editButton {
+    background-color: rgb(255, 0, 136);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.editButton:hover {
+    background-color: rgb(135, 53, 190);
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.toggleButton {
+    background-color: #d2719b;
+    padding: 5px;
+    border: 1px solid rgb(186, 72, 106);
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0 0#ebc4de;
+}
+
+.toggleButton:hover {
+    background-color: rgb(186, 72, 106);
+}
+
+.tasksContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tasksList {
+  list-style-type: "🎀";
+  padding-left: 1.5rem;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: 80%;
+}
+
+.taskItem {
+  padding: 0.5rem 0;
+}
+
+.taskLine {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  min-width: 200px;
+}
+
+.taskName {
+  text-align: left;
+}
+
+.taskStatus {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  background-color: #e96ac7;
+  color: #fff;
+  font-weight: 500;
+  min-width: 80px;
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+        margin: 0.5rem;
+        width: calc(100% - 1rem);
+    }
+
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        min-width: 100px; 
+    }
+
+    .createButton {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .editButton {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .tasksList {
+        max-width: 100%;
+        padding-left: 1rem;
+    }
+
+    .taskLine {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+        min-width: auto;
+    }
+
+    .taskStatus {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    .table th:nth-child(3), 
+    .table td:nth-child(3),
+    .table th:nth-child(4), 
+    .table td:nth-child(4) {
+        display: none;
+    }
+
+    .tasksList {
+        padding-left: 0.5rem;
+    }
+
+    .taskItem {
+        padding: 0.3rem 0;
+    }
+}

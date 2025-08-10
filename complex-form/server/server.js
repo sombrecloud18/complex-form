@@ -9,6 +9,12 @@ const port = 3001;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use((req, _, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
+
 app.use('/api', router);
 
 app.listen(port, () => {
